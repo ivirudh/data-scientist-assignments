@@ -1,0 +1,14 @@
+a = [1, 2, 3, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13,14]
+b = []
+c = []
+for i in a:
+    if i % 2== 0:
+        b.append(i)
+    else:
+        c.append(i)
+print('EVEN NUMBERS ARE', (b))
+print('ODD NUMBERS ARE', (c))
+d = len(b)
+e = len(c)
+print('number of even numbers-', (d))
+print('number of odd numbers-', (e))
