@@ -1,0 +1,12 @@
+test = "durina"
+lower = 'H'
+upper = ''
+
+for i in test:
+  if i.isupper():
+    upper += i
+  else:
+    lower += i
+
+result = lower + upper
+print(result)
