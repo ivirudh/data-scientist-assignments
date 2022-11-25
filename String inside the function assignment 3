@@ -1,0 +1,2 @@
+a = 'ani83rudh'[::-1]
+print (a)
