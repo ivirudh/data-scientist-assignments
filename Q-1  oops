@@ -1,0 +1,17 @@
+class Point:
+    def __init__(self,a,n,i):
+        self.a = a
+        self.n = n
+        self.i = i
+
+    def sqSum(self):
+        x, y, z = self.a, self.n, self.i
+
+        a = x * x
+        n = y * y
+        i = z * z
+        sum_total = f"The sum of square of given numbers is: {a + n + i}"
+        return sum_total
+
+square = Point(2,5,6)
+square.sqSum()
