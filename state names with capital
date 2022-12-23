@@ -1,0 +1,23 @@
+import json
+
+indian_states =  [
+  {
+    "Andhra Pradesh": "amravati",
+    "arunachal pradesh": "itanagar",
+    "assam": "dispur",
+    "goa": "panaji",
+    "Tamil Nadu": "Chennai",
+    "Rajasthan": "Jaipur",
+    "gujrat": "gandhinagar"
+  }
+]
+with open(r"indian_states.json", "w") as file:
+
+    json.dump(indian_states,file )
+class indian_states:
+
+    f= open("indian_states.json")
+    data = json.load(f)
+
+    json_list = json.dumps(data)
+    print(json_list)
