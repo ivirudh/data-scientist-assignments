@@ -1,0 +1,69 @@
+import json
+
+
+employee=[
+    {
+    "NAME" : "anirudh",
+    "DOB": "04-04-2002",
+    "HIEGHT": "5.8",
+    "CITY": "amritsar",
+    "STATE": "punjab"
+    },
+    {
+    "NAME" : "rishika",
+    "DOB": "23-03-2000",
+    "HIEGHT": "5.3",
+    "CITY": "solan",
+    "STATE": "himachal"
+                
+    },
+    {
+    "NAME" : "anu",
+    "DOB": "04-04-2002",
+    "HIEGHT": "5.7",
+    "CITY": "new delhi",
+    "STATE": "delhi"
+                
+    },
+    {
+                
+    "NAME" : "rishu",
+    "DOB": "23-03-2000",
+    "HIEGHT": "5.3",
+    "CITY": "SOLAN",
+    "STATE": "HIMACHAL PRADESH"
+                
+
+    },
+    {
+    "NAME" : "anchal",
+    "DOB": "09-09-2000",
+    "HIEGHT": "5.5",
+    "CITY": "amritsar",
+    "STATE": "punjab"
+                
+    },
+    {
+    "NAME" : "bitu",
+    "DOB": "16-08-2000",
+    "HIEGHT": "5.3",
+    "CITY": "ropar",
+    "STATE": "punjab"
+                
+        }
+    ]
+
+
+
+
+
+with open("employee.json", "w") as file:
+    json.dump(employee, file)
+
+
+class Employee:
+    f = open("employee.json")
+    data = json.load(f)
+
+    json_list = json.dumps(data)
+    print(json_list)
