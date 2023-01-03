@@ -1,0 +1,348 @@
+Q1. Write a program to find all pairs of an integer array whose sum is equal to a given number?
+def printPairs(arr, n, sum):
+
+	# count = 0
+
+	# Consider all possible
+	# pairs and check their sums
+	for i in range(0, n ):
+		for j in range(i + 1, n ):
+			if (arr[i] + arr[j] == sum):
+				print("(", arr[i],
+					", ", arr[j],
+					")", sep = "")
+
+
+# Driver Code
+arr = [1, 5, 7, -1, 5, 3, 4, 6, 0, 8]
+n = len(arr)
+sum = 6
+print("POSSIBLE PAIRS WHOSE SUM IS 6 FROM THE GIVEN ARRAY ARE-")
+printPairs(arr, n, sum)
+
+Q2. Write a program to reverse an array in place? In place means you cannot create a new array. You have to update the original array.
+arr=[1,2,45,67,8,90,54,21]
+print("ORIGINAL ARRAY")
+for i in range(0, len(arr)):
+  print(arr[i], end=' ')
+print("\n\nREVERSED ARRAY")
+for i in range(len(arr)-1,-1,-1):
+  print(arr[i], end=' ')
+  
+  
+  
+Q3. Write a program to check if two strings are a rotation of each other?
+  def check_rotation(s, goal):
+ 
+    if (len(s) != len(goal)):
+        skip
+ 
+    q1 = []
+    for i in range(len(s)):
+        q1.insert(0, s[i])
+ 
+    q2 = []
+    for i in range(len(goal)):
+        q2.insert(0, goal[i])
+ 
+    k = len(goal)
+    while (k > 0):
+        ch = q2[0]
+        q2.pop(0)
+        q2.append(ch)
+        if (q2 == q1):
+            return True
+ 
+        k -= 1
+ 
+    return False
+ 
+ 
+# Driver code
+if __name__ == "__main__":
+ 
+    string1 = "AACD"
+    string2 = "ACDA"
+ 
+    # Function call
+    if check_rotation(string1, string2):
+        print("Strings are rotations of each other")
+    else:
+        print("Strings are not rotations of each other")
+
+
+
+Q4. Write a program to print the first non-repeated character from a string?
+   string = str(input("ENTER THE STRING YOU WANT TO TEST"))
+index = -1
+f = ""
+for i in string:
+	if string.count(i) == 1:
+		f += i
+		break
+	else:
+		index += 1
+if index == 1:
+	print("THE STRING IS EMPTY OR ALL THE CHARACTERS ARE REPEATING")
+else:
+	print("FIRST NON REPEATING CHARACTER IS", f)
+
+Q5. Read about the Tower of Hanoi algorithm. Write a program to implement it.
+def tower_of_hanoi(disks, source, auxiliary, target):  
+    if(disks == 1):  
+        print('Move disk 1 from rod {} to rod {}.'.format(source, target))  
+        return  
+    # function call itself  
+    tower_of_hanoi(disks - 1, source, target, auxiliary)  
+    print('Move disk {} from rod {} to rod {}.'.format(disks, source, target))  
+    tower_of_hanoi(disks - 1, auxiliary, source, target)  
+  
+  
+disks = int(input('Enter the number of disks: '))  
+  
+tower_of_hanoi(disks, 'A', 'B', 'C')
+
+
+Q6. Read about infix, prefix, and postfix expressions. Write a program to convert postfix to prefix expression.
+def isOperator(x):
+ 
+    if x == "+":
+        return True
+ 
+    if x == "-":
+        return True
+ 
+    if x == "/":
+        return True
+ 
+    if x == "*":
+        return True
+ 
+    return False
+    
+    
+    -----------------------------------------
+    # Convert postfix to Prefix expression
+def postToPre(post_exp):
+ 
+    s = []
+ 
+    # length of expression
+    length = len(post_exp)
+ 
+    # reading from right to left
+    for i in range(length):
+ 
+        # check if symbol is operator
+        if (isOperator(post_exp[i])):
+ 
+            # pop two operands from stack
+            op1 = s[-1]
+            s.pop()
+            op2 = s[-1]
+            s.pop()
+ 
+            # concat the operands and operator
+            temp = post_exp[i] + op2 + op1
+ 
+            # Push string temp back to stack
+            s.append(temp)
+ 
+        # if symbol is an operand
+        else:
+ 
+            # push the operand to the stack
+            s.append(post_exp[i])
+ 
+    
+    ans = ""
+    for i in s:
+        ans += i
+    return ans
+    -----------------------------------------------------------------------------
+    # Driver Code
+if __name__ == "__main__":
+ 
+    post_exp = "AB+CD-"
+     
+    # Function call
+    print("Prefix : ", postToPre(post_exp))
+    
+ Q7. Write a program to convert prefix expression to infix expression.
+ 
+ def prefixToInfix(prefix):
+    stack = []
+     
+    # read prefix in reverse order
+    i = len(prefix) - 1
+    while i >= 0:
+        if not isOperator(prefix[i]):
+             
+            # symbol is operand
+            stack.append(prefix[i])
+            i -= 1
+        else:
+           
+            # symbol is operator
+            str = "(" + stack.pop() + prefix[i] + stack.pop() + ")"
+            stack.append(str)
+            i -= 1
+     
+    return stack.pop()
+ 
+def isOperator(c):
+    if c == "*" or c == "+" or c == "-" or c == "/" or c == "^" or c == "(" or c == ")":
+        return True
+    else:
+        return False
+ 
+# Driver code
+if __name__=="__main__":
+    str = "*-A/BC-/AKL"
+    print(prefixToInfix(str))
+    
+ Q8. Write a program to check if all the brackets are closed in a given code snippet
+ def areBracketsBalanced(expr):
+    stack = []
+ 
+    # Traversing the Expression
+    for char in expr:
+        if char in ["(", "{", "["]:
+ 
+            # Push the element in the stack
+            stack.append(char)
+        else:
+ 
+            if not stack:
+                return False
+            current_char = stack.pop()
+            if current_char == '(':
+                if char != ")":
+                    return False
+            if current_char == '{':
+                if char != "}":
+                    return False
+            if current_char == '[':
+                if char != "]":
+                    return False
+ 
+    # Check Empty Stack
+    if stack:
+        return False
+    return True
+ 
+ 
+# Driver Code
+if __name__ == "__main__":
+    expr = "{(}[]"
+ 
+    # Function call
+    if areBracketsBalanced(expr):
+        print(" All the brackets are closed...!")
+    else:
+        print(" All the brackets are not closed...!")
+        
+ Q9. Write a program to reverse a stack
+ class Stack:
+
+	# create empty list
+	def __init__(self):
+		self.Elements = []
+		
+	# push() for inserting an element
+	def push(self, value):
+		self.Elements.append(value)
+	
+	# pop() for removing an element
+	def pop(self):
+		return self.Elements.pop()
+	
+	# empty() to check the stack is empty of not
+	def empty(self):
+		return self.Elements == []
+	
+	# show() to display stack
+	def show(self):
+		for value in reversed(self.Elements):
+			print(value)
+
+# Insert_Bottom() to insert value at bottom
+def BottomInsert(s, value):
+
+	# check the stack is empty or not
+	if s.empty():
+		
+		# if stack is empty then call
+		# push() method.
+		s.push(value)
+		
+	# if stack is not empty then execute
+	# else block
+	else:
+		popped = s.pop()
+		BottomInsert(s, value)
+		s.push(popped)
+
+# Reverse() reverse the stack
+def Reverse(s):
+	if s.empty():
+		pass
+	else:
+		popped = s.pop()
+		Reverse(s)
+		BottomInsert(s, popped)
+
+
+# create object of stack class
+stk = Stack()
+
+stk.push(6)
+stk.push(7)
+stk.push(8)
+stk.push(9)
+stk.push(23)
+
+print("Original Stack")
+stk.show()
+
+print("\nStack after Reversing")
+Reverse(stk)
+stk.show()
+
+Q10. Write a program to find the smallest number using a stack
+stack = []
+--------------------------
+def push():
+  element=input("ENTER THE ELEMENT YOU WANT TO ADD IN THE STACK")
+  stack.append(element)
+  print(stack)
+  ----------------------------------------
+  def pop():
+  if not stack:
+    print("THE STACK IS EMPTY")
+  else:
+    e = stack.pop()
+    print('REMOVED ITEM:', e)
+    print(stack)
+    ------------------------------------------------
+    
+    def getmin():
+  smallest = stack[0]
+  for item in stack:
+    if item < smallest:
+      smallest = item
+      print("SMALLEST ELEMENT IN STACK IS:", smallest)
+      -----------------------------------------------------------------
+      while True:
+  print('PLEASE SELECT THE OPERATION\n1.PUSH 2.POP 3.GET MINIMUM VALUE 4.EXIT')
+  y = int(input())
+  if y==1:
+    push()
+  elif y==2:
+    pop()
+  elif y==3:
+    getmin()
+  elif y==4:
+    break
+  else:
+    print("CHOOSE A VALID OPTION")
