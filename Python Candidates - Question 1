@@ -1,0 +1,22 @@
+def input_list(list_1):
+  output_list = [list_1[-4],list_1[-1],list_1[1],list_1[-2]]
+  print("The list based on 2nd last character of a string is : ",output_list)
+
+list_1 = (['great','hello','hiyo','abc'])
+
+print("The given list is : " ,list_1)
+print("-"*55,"\n"*2)
+
+def alphabetical_order(list_2):
+  list_2.sort()
+  print("The alphabetical_order is : ",list_2)
+
+list_2 = (['great','hello','hiyo','abc'])
+
+#Printing alphabetical order
+alphabetical_order(list_2)
+print("-"*65,"\n"*2)
+
+#Printing The list based on 2nd last character of a string
+input_list(list_1)
+print("-"*90,"\n")
