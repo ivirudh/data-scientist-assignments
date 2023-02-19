@@ -1,0 +1,43 @@
+Q=1(Create a null vector of size 10 but the fifth value which is 1.)
+
+import numpy as np
+ani = np.zeros(10)
+ani[4] = 1
+print(ani)
+
+Q-2(Create a vector with values ranging from 10 to 49.)
+
+import numpy as np
+a = np.arange(10,49)
+
+print(a)
+
+
+Q-3(Create a 3x3 matrix with values ranging from 0 to 8)
+ 
+A =  np.arange(9).reshape(3,3)
+print(A)
+
+
+Q-4(Find indices of non-zero elements from [1,2,0,0,4,0])
+
+arr = np.array([1,2,0,0,4,0])
+non_zero_indices = np.nonzero(arr)[0]
+print(non_zero_indices)
+
+Q-5(Create a 10x10 array with random values and find the minimum and maximum values.)
+
+arr = np.random.rand(10,10)
+min_val = np.min(arr)
+max_val = np.max(arr)
+print("array:")
+print(arr)
+print("minimum value:",min_val)
+print("maximum value:",max_val)
+
+Q-6(Create a random vector of size 30 and find the mean value)
+
+vecc = np.random.rand(30)
+mean = np.mean(vecc)
+print("Random vector:", vecc)
+print("Mean value:",mean)
